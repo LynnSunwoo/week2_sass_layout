@@ -1,0 +1,66 @@
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+body { border : 1px solid red ;}
+.container { 
+	margin: 0 auto;
+	border :1px solid red;
+	
+	@media (min-width: 40em){
+	width: 100%;
+	}
+	
+	@media (min-width: 55em){
+	width: 55em;
+	}
+	
+}
+.banner { background-color : pink;
+height :300px;}
+
+.main-nav {
+
+	ul {padding:0; margin: 0;}
+	li { margin-top: 1em}
+	a {display: block;}
+	@media (min-width: 40em){
+	
+	ul{ @include clearfix;}
+		li{ float: left; margin-left: 1em; margin-top: 0;}
+		
+	}
+}
+
+
+.col{
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 1px solid blue;
+	&:first-child{margin-top: 0; padding-top:0; border:none}
+	@media (min-width: 40em){
+	float: left;
+	}
+}
+
+.col-2{
+ background-color: orange;
+	@media (min-widht: 40em){
+		width: 45%;
+	}
+ }
+
+ .col-3 {
+ background-color: lightblue;
+ 
+ }
+
+
+	
